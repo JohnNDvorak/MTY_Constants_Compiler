@@ -5,8 +5,12 @@
   Mossinghoff-Trudgian-Yang arXiv:2212.06867 for their P40 polynomial.
 *)
 
-(* Load compiler *)
-Get[FileNameJoin[{ParentDirectory[NotebookDirectory[]], "src", "MTY_constants_compiler.wl"}]];
+(* Load compiler - works for both notebook and script execution *)
+$projectRoot = If[ValueQ[$InputFileName] && $InputFileName =!= "",
+  ParentDirectory[DirectoryName[$InputFileName]],
+  ParentDirectory[NotebookDirectory[]]
+];
+Get[FileNameJoin[{$projectRoot, "src", "MTY_constants_compiler.wl"}]];
 
 (* P40 polynomial from Table 2 *)
 polyP40 = <|

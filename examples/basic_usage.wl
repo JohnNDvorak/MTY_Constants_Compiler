@@ -10,9 +10,12 @@
 *)
 
 (* --- 1. Load the compiler --- *)
-Get[FileNameJoin[{ParentDirectory[NotebookDirectory[]], "src", "MTY_constants_compiler.wl"}]];
-(* Or if running as a script: *)
-(* Get["/Users/john.n.dvorak/Documents/Git/MTY_Constants_Compiler/src/MTY_constants_compiler.wl"]; *)
+(* Works for both notebook and script execution *)
+$projectRoot = If[ValueQ[$InputFileName] && $InputFileName =!= "",
+  ParentDirectory[DirectoryName[$InputFileName]],
+  ParentDirectory[NotebookDirectory[]]
+];
+Get[FileNameJoin[{$projectRoot, "src", "MTY_constants_compiler.wl"}]];
 
 (* --- 2. Define the P40 polynomial --- *)
 polyP40 = <|
