@@ -1,0 +1,32 @@
+# Mathematica autosaves
+*.nb.autosaves/
+*.m~
+*.wl~
+
+# macOS
+.DS_Store
+
+# Editor backups
+*~
+\#*\#
+.\#*
+
+# Python (if using any Python tools)
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build artifacts
+*.mx
+*.mx64
